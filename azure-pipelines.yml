@@ -50,9 +50,11 @@ jobs:
 
   - task: NuGetToolInstaller@1
 
-  - task: NuGetCommand@2
+  - task: MSBuild@1
     inputs:
-      restoreSolution: '**/*.sln'
+      solution: 'App.sln'
+      configuration: 'Release'
+      msbuild Arguments: /t:restore
 
   - task: XamariniOS@2
     inputs:
